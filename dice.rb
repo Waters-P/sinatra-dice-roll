@@ -12,9 +12,19 @@ BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
 
-  erb(:tiger)
+  "
+  <ul>
+    
+    <li><a href=\"/2dice6sides\"> Shake 2 dice with 6 sides</a></P>
+    <li><a href=\"/2dice10sides\"> Shake 2 dice with 10 sides</a></p>
+
+  </ul>
   
+  "
+
 end
+
+
 
 get("/2dice6sides") do 
 
@@ -25,7 +35,8 @@ get("/2dice6sides") do
 
   final = "Dice 1 landed on #{die_1} and Dice 2 landed on #{die_2}."
 
-  erb(:two_d6s)
+  "<h1> 2 Dice 6 Sides </h1>
+   <p> #{final} </p>"
 end
 
 get("/2dice10sides") do
@@ -36,7 +47,8 @@ get("/2dice10sides") do
 
   final = "Dice 1 landed on #{die_1} and Dice 2 landed on #{die_2}."
 
-  erb(:two_d10s)
+  "<h1> 2 Dice 10 Sides </h1>
+   <p> #{final} </p>"
   
 end
  
