@@ -12,43 +12,49 @@ BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
 
-  "
-  <ul>
-    
-    <li><a href=\"/2dice6sides\"> Shake 2 dice with 6 sides</a></P>
-    <li><a href=\"/2dice10sides\"> Shake 2 dice with 10 sides</a></p>
-
-  </ul>
-  
-  "
+  erb(:tiger)
 
 end
-
 
 
 get("/2dice6sides") do 
 
-  
-  die_1 = rand(1..6)
-  die_2 = rand(1..6)
-  sum = die_1 + die_2
+  @die_1 = rand(1..6)
+  @die_2 = rand(1..6)
+  @sum = @die_1 + @die_2
 
-  final = "Dice 1 landed on #{die_1} and Dice 2 landed on #{die_2}."
+  @final = " Dice 1 landed on #{@die_1} and Dice 2 landed on #{@die_2}."
 
-  "<h1> 2 Dice 6 Sides </h1>
-   <p> #{final} </p>"
+  erb(:two_d6s)
+
 end
+
 
 get("/2dice10sides") do
 
-  die_1 = rand(1..10)
-  die_2 = rand(1..10)
-  sum = die_1 + die_2
+  @die_1 = rand(1..10)
+  @die_2 = rand(1..10)
+  @sum = @die_1 + @die_2
 
-  final = "Dice 1 landed on #{die_1} and Dice 2 landed on #{die_2}."
+  @final = " Dice 1 landed on #{@die_1} and Dice 2 landed on #{@die_2}."
 
-  "<h1> 2 Dice 10 Sides </h1>
-   <p> #{final} </p>"
-  
+  erb(:two_d10s)
+
 end
- 
+
+
+get("/3dice15sides") do
+
+  @shakes = []
+    5.times do
+      @die_1 = rand(1..15)
+      @die_2 = rand(1..15)
+      @die_3 = rand(1..15)
+
+      @shakes.push(@die_1)
+     
+    end
+
+  erb(:three_d15s)
+
+end 
